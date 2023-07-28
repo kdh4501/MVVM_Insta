@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "693707244973",
+    "project_id": "mvvm-insta",
+    "storage_bucket": "mvvm-insta.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693707244973:android:57f2c0a0a00d03c9b54d24",
+        "android_client_info": {
+          "package_name": "com.dhkim.mvvminsta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "693707244973-k137s0jv8b8n3e6p3s62uba6e3jo29c9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaFhTFJwHWT9Z-1AamYTHZN259YkQMmDg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693707244973-k137s0jv8b8n3e6p3s62uba6e3jo29c9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
