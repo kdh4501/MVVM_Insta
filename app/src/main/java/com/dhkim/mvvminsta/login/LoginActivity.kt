@@ -42,10 +42,6 @@ class LoginActivity : AppCompatActivity() {
         loginViewModel.showFindIdActivity.value = true
     }
 
-    fun loginFacebook() {
-
-    }
-
     // 구글 로그인이 성공한 결과값 받는 함수
     var googleLoginResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         result ->
@@ -55,5 +51,9 @@ class LoginActivity : AppCompatActivity() {
         val account = task.getResult(ApiException::class.java)
          // 로그인한 사용자 정보를 암호화한 값
         loginViewModel.firebaseAuthWithGoogle(account.idToken)
+    }
+
+    fun loginFacebook() {
+
     }
 }
