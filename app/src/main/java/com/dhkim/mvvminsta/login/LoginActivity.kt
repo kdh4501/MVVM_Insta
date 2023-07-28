@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
+import com.dhkim.mvvminsta.MainActivity
 import com.dhkim.mvvminsta.R
 import com.dhkim.mvvminsta.databinding.ActivityLoginBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -34,6 +35,11 @@ class LoginActivity : AppCompatActivity() {
         loginViewModel.showFindIdActivity.observe(this) {
             if (it) {
                 startActivity(Intent(this, FindIdActivity::class.java))
+            }
+        }
+        loginViewModel.showMainActivity.observe(this) {
+            if (it) {
+                startActivity(Intent(this, MainActivity::class.java))
             }
         }
     }

@@ -19,6 +19,7 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
     var showInputNumberActivity : MutableLiveData<Boolean> = MutableLiveData(false)
     var showFindIdActivity : MutableLiveData<Boolean> = MutableLiveData(false)
+    var showMainActivity : MutableLiveData<Boolean> = MutableLiveData(false)
     val context = getApplication<Application>().applicationContext
 
     var googleSignInClient : GoogleSignInClient
@@ -41,6 +42,18 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
                 }
             }
     }
+    fun loginEmail() {
+        auth.signInWithEmailAndPassword(id.value.toString(), password.value.toString())
+            .addOnCompleteListener {
+                if (it.isSuccessful) {
+                    if (it.result.user?.isEmailVerified == true) {
+                        showMainActivity.value = true
+                    } else {
+                        showInputNumberActivity.value = true
+                    }
+                }
+            }
+    }
 
     fun loginGoogle(view: View) {
         var i = googleSignInClient.signInIntent
@@ -50,10 +63,11 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         auth.signInWithCredential(credential).addOnCompleteListener{
             if (it.isSuccessful) {
-                showInputNumberActivity.value = true
-            } else {
-                // id 있을 경우
-
+                if (it.result.user?.isEmailVerified == true) {
+                    showMainActivity.value = true
+                } else {
+                    showInputNumberActivity.value = true
+                }
             }
         }
     }
